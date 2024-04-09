@@ -1,18 +1,10 @@
 import emailjs from "@emailjs/browser";
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-// import Projects from "./Projects";
 
-import { socialLinks } from "../constants";
-import { arrow } from "../assets/icons";
-
-import Fox from "../Models/Fox";
-import useAlert from "../hookks/useAlert";
-import Alert from "../Components/Alert";
-import Loader from "../Components/Loader";
-// import CTA from "../Components/CTA";
-// import Aman from "../Components/Aman";
+import { Fox } from "../models";
+import useAlert from "../hooks/useAlert";
+import { Alert, Loader } from "../components";
 
 const Contact = () => {
   const formRef = useRef();
@@ -35,9 +27,7 @@ const Contact = () => {
 
     emailjs
       .send(
-        
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
@@ -46,7 +36,6 @@ const Contact = () => {
           to_email: "sujata@jsmastery.pro",
           message: form.message,
         },
-        // import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       )
       .then(
@@ -66,7 +55,7 @@ const Contact = () => {
               email: "",
               message: "",
             });
-          }, [6000]);
+          }, [3000]);
         },
         (error) => {
           setLoading(false);
@@ -83,7 +72,7 @@ const Contact = () => {
   };
 
   return (
-    <section className='relative flex lg:flex-row flex-col max-container h-[100vh]'>
+    <section className='relative flex lg:flex-row flex-col max-container'>
       {alert.show && <Alert {...alert} />}
 
       <div className='flex-1 min-w-[50%] flex flex-col'>
@@ -100,7 +89,7 @@ const Contact = () => {
               type='text'
               name='name'
               className='input'
-              placeholder='Aman Mishra'
+              placeholder='John'
               required
               value={form.name}
               onChange={handleChange}
@@ -114,7 +103,7 @@ const Contact = () => {
               type='email'
               name='email'
               className='input'
-              placeholder='amanmishra@gmail.com'
+              placeholder='John@gmail.com'
               required
               value={form.email}
               onChange={handleChange}
@@ -176,44 +165,6 @@ const Contact = () => {
             />
           </Suspense>
         </Canvas>
-      </div>
-      <div className='flex flex-wrap my-20 gap-16'>
-        {socialLinks.map((social) => (
-          <div className='lg:w-[400px] w-full' key={social.name}>
-            <div className='block-container w-12 h-12'>
-              <div className={`btn-back rounded-xl ${social.theme}`} />
-              <div className='btn-front rounded-xl flex justify-center items-center'>
-                <img
-                  src={social.iconUrl}
-                  alt='threads'
-                  className='w-1/2 h-1/2 object-contain'
-                />
-              </div>
-            </div>
-
-            <div className='mt-5 flex flex-col'>
-              <h4 className='text-2xl font-poppins font-semibold'>
-                {social.name}
-              </h4>
-              <p className='mt-2 text-slate-500'>{social.description}</p>
-              <div className='mt-5 flex items-center gap-2 font-poppins'>
-                <Link
-                  to={social.link}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='font-semibold text-blue-600'
-                >
-                   Link
-                </Link>
-                <img
-                  src={arrow}
-                  alt='arrow'
-                  className='w-4 h-4 object-contain'
-                />
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   );

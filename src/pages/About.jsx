@@ -3,13 +3,10 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 
-// import  CTA  from "../components/CTA";
-// import { CTA } from "../Components/CTA.jsx";
+import { CTA } from "../components";
 import { experiences, skills } from "../constants";
-// skill
 
 import "react-vertical-timeline-component/style.min.css";
-import CTA from "../Components/CTA";
 
 const About = () => {
   return (
@@ -18,14 +15,14 @@ const About = () => {
         Hello, I'm{" "}
         <span className='blue-gradient_text font-semibold drop-shadow'>
           {" "}
-          Aman Mishra
+          Adrian
         </span>{" "}
         👋
       </h1>
 
       <div className='mt-5 flex flex-col gap-3 text-slate-500'>
         <p>
-          I am a Software Engineer, specializing in technical
+          Software Engineer based in Croatia, specializing in technical
           education through hands-on learning and building applications.
         </p>
       </div>
@@ -47,31 +44,7 @@ const About = () => {
             </div>
           ))}
         </div>
-          
-
       </div>
-      {/* i will adding my some of core subject         */}
-     {/* <div className='py-10 flex flex-col'>
-        <h3 className='subhead-text'>Developer Tools Like</h3>
-
-        <div className='mt-16 flex flex-wrap gap-12'>
-          {skill.map((Tools) => (
-            <div className='block-container w-20 h-20' key={Tools.name}>
-              <div className='btn-back rounded-xl' />
-              <div className='btn-front rounded-xl flex justify-center items-center'>
-                <img
-                  src={Tools.imageUrl}
-                  alt={Tools.name}
-                  className='w-1/2 h-1/2 object-contain'
-                />
-              </div>
-            </div>
-          ))}
-        </div> 
-          
-
-      </div>  */}
-
 
       <div className='py-16'>
         <h3 className='subhead-text'>Work Experience.</h3>
@@ -135,9 +108,7 @@ const About = () => {
 
       <hr className='border-slate-200' />
 
-      <div>
-        <CTA/>
-      </div>
+      <CTA />
     </section>
   );
 };
