@@ -207,9 +207,9 @@ export const projects = [
     {
         iconUrl: snapgram,
         theme: 'btn-back-pink',
-        name: 'Full Stack Instagram Clone',
+        name: 'Fronted TextUtils ',
         description: 'Built a complete clone of Instagram, allowing users to share photos and connect with friends in a familiar social media environment.',
-        link: 'https://github.com/adrianhajdin/social_media_app',
+        link: 'https://textutils-omega-swart.vercel.app/',
     },
     {
         iconUrl: estate,
